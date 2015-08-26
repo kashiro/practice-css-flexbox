@@ -1,0 +1,15 @@
+.ai{
+  // option
+  .example-outer{
+    align-items: flex-start;
+    // jsで個別指定
+  }
+  .example-inner{
+    //width: 10%;
+    min-height: 30%;
+    //flex-grow: inherit;
+    &:nth-child(2){
+      min-height: 50%;
+    }
+  }
+}

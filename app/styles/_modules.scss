@@ -1,0 +1,61 @@
+$module-padding: 10px;
+
+
+/* --------------------------
+ * common
+ * ------------------------- */
+%example-label{
+  display: block;
+  font-size: 13px;
+  color: $primary-color-text;
+  background-color: $accent-color;
+  padding: $module-padding;
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.example-container{
+  display: flex;
+  box-sizing: border-box;
+  position: relative;
+}
+.example-container--centerd{
+  @extend .example-container;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --------------------------
+ * module
+ * ------------------------- */
+.example-outer{
+  @extend .example-container;
+  width: 100%;
+  height: 500px;
+  background-color: $primary-color;
+  padding: $module-padding * 6 $module-padding $module-padding;
+  &:after{
+    @extend %example-label;
+    content: 'flex container';
+  }
+
+}
+.example-inner{
+  @extend .example-container--centerd;
+  flex-grow: 1;
+  background-color: $primary-color-light;
+  padding: $module-padding;
+  & + .example-inner{
+    margin-left: 10px;
+  }
+  &:after{
+    @extend %example-label;
+    content: 'flex item';
+  }
+}
+.example-inner__index{
+  font-size: 20px;
+  color: $secondary-text-color;
+}

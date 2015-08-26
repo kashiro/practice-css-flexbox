@@ -1,0 +1,13 @@
+.as{
+  // option
+  .example-outer{
+    align-items: flex-start;
+  }
+  .example-inner{
+    min-height: 30%;
+    &:nth-child(2){
+      min-height: 50%;
+      // 2番目だけjsで個別に指定
+    }
+  }
+}

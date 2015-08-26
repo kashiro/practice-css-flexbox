@@ -1,0 +1,23 @@
+.fd{
+  // option
+  .example-outer{
+    &.row-reverse{
+      flex-direction: row-reverse;
+      .example-inner + .example-inner{
+        margin: 0 10px 0 0;
+      }
+    }
+    &.column{
+      flex-direction: column;
+      .example-inner + .example-inner{
+        margin: 10px 0 0 0;
+      }
+    }
+    &.column-reverse{
+      flex-direction: column-reverse;
+      .example-inner + .example-inner{
+        margin: 0 0 10px 0;
+      }
+    }
+  }
+}
