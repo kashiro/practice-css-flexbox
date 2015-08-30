@@ -1,0 +1,33 @@
+<main class="as">
+<h1 class="title">align-self</h1>
+  <div class="content">
+
+    <div class="example-outer">
+
+      <md-input-container class="prop-select" disabled>
+        <label>align-items</label>
+        <md-select ng-model="alignSelfCtrl.outValue">
+          <md-option value="flex-start">flex-start</md-option>
+        </md-select>
+      </md-input-container>
+
+      <section class="example-inner"></section>
+      <section class="example-inner" ng-style="{alignSelf: alignSelfCtrl.inValue}">
+
+        <md-input-container class="prop-select">
+          <label>align-self</label>
+          <md-select ng-model="alignSelfCtrl.inValue">
+            <md-option value="flex-start">flex-start</md-option>
+            <md-option value="flex-end">flex-end</md-option>
+            <md-option value="center">center</md-option>
+            <md-option value="stretch">stretch</md-option>
+            <md-option value="baseline">baseline</md-option>
+          </md-select>
+        </md-input-container>
+
+      </section>
+      <section class="example-inner"></section>
+    </div>
+
+  </div>
+</main>

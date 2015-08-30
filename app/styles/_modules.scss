@@ -40,13 +40,13 @@ $module-padding: 10px;
     @extend %example-label;
     content: 'flex container';
   }
-
 }
 .example-inner{
   @extend .example-container--centerd;
   flex-grow: 1;
   background-color: $primary-color-light;
   padding: $module-padding;
+  transition: .3s ease-out;
   & + .example-inner{
     margin-left: 10px;
   }
@@ -58,4 +58,20 @@ $module-padding: 10px;
 .example-inner__index{
   font-size: 20px;
   color: $secondary-text-color;
+}
+.prop-select{
+  position: absolute;
+  top: 0;
+  left: 120px;
+  color: #fff !important;
+  &.md-input-has-value.md-input-focused .md-select-value{
+    color: #fff;
+  }
+  .md-select-value.md-select-placeholder,
+  .md-select-value{
+    color: #fff;
+  }
+  > label{
+    color: #fff !important;
+  }
 }

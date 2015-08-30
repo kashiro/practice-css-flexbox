@@ -1,0 +1,23 @@
+<main class="fd">
+  <h1 class="title">flex-direction</h1>
+  <div class="content">
+
+    <div class="example-outer {{flexDirectionCtrl.value}}">
+
+      <md-input-container class="prop-select">
+        <label>flex-direction</label>
+        <md-select ng-model="flexDirectionCtrl.value">
+          <md-option value="row">row</md-option>
+          <md-option value="row-reverse">row-reverse</md-option>
+          <md-option value="column">column</md-option>
+          <md-option value="column-reverse">column-reverse</md-option>
+        </md-select>
+      </md-input-container>
+
+      <section class="example-inner"><p class="example-inner__index">1</p></section>
+      <section class="example-inner"><p class="example-inner__index">2</p></section>
+      <section class="example-inner"><p class="example-inner__index">3</p></section>
+    </div>
+
+  </div>
+</main>

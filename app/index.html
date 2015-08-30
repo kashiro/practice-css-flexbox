@@ -1,40 +1,66 @@
 <!doctype html>
-<html lang="">
+<html ng-app="app">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Practice CSS Flexbox</title>
-
-    <!-- Page styles -->
+    <base href="/">
+    <!-- build:css styles/main.min.css -->
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="angular-material/angular-material.css">
+    <!-- endbuild -->
   </head>
-  <body class="index">
-    <main>
-      <h1 class="title">Practice CSS Flexbox</h1>
-      <div class="content">
-        <section class="section">
-          <h1>Flex content</h1>
-          <ul>
-            <li><a href="">flex-direction</a></li>
-            <li><a href="">flex-wrap</a></li>
-            <li><a href="">justify-content</a></li>
-            <li><a href="">align-items</a></li>
-            <li><a href="">align-content</a></li>
-          </ul>
-        </section>
-        <section class="section">
-          <h1>Flex item</h1>
-          <ul>
-            <li><a href="">flex-grow</a></li>
-            <li><a href="">flex-shrink</a></li>
-            <li><a href="">flex-basis</a></li>
-            <li><a href="">align-self</a></li>
-            <li><a href="">order</a></li>
-          </ul>
-        </section>
-      </div>
-    </main>
+  <body>
+    <section flex layout="column" layout-fill ng-controller="SideNavController as sideNavCtrl">
+      <md-toolbar class="md-theme-indigo">
+        <h1 class="md-toolbar-tools">Practice CSS Flexbox</h1>
+        <md-button ng-click="sideNavCtrl.toggle()" class="md-primary" hide-gt-md>toggle</md-button>
+      </md-toolbar>
+      <md-content flex layout="row">
+        <md-sidenav flex class="md-sidenav-left md-whiteframe-z2" md-component-id="sideNav" md-is-locked-open="$mdMedia('gt-md')">
+          <md-list>
+            <md-subheader class="md-no-sticky">flex container</md-subheader>
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">display-flex</md-list-item>
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-direction</md-list-item>
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-wrap</md-list-item>
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">justify-content</md-list-item>
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">align-items</md-list-item>
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">align-content</md-list-item>
+
+            <md-subheader class="md-no-sticky">flex item</md-subheader>
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-grow</md-list-item>
+            <!-- <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-shrink</md-list-item> -->
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-basis</md-list-item>
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">align-self</md-list-item>
+            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">order</md-list-item>
+          </md-list>
+        </md-sidenav>
+        <md-content flex layout-padding layout="column" layout-fill layout-align="top center">
+          <div ng-view></div>
+        </md-content>
+      </md-content>
+    </section>
+    <!-- build:js scripts/main.min.js -->
+    <script src="angular/angular.js"></script>
+    <script src="angular-route/angular-route.js"></script>
+    <script src="angular-aria/angular-aria.js"></script>
+    <script src="angular-animate/angular-animate.js"></script>
+    <script src="angular-material/angular-material.js"></script>
+    <script src="scripts/main.js"></script>
+    <script src="scripts/controller/sidenavController.js"></script>
+    <script src="scripts/controller/displayFlexController.js"></script>
+    <script src="scripts/controller/flexDirectionController.js"></script>
+    <script src="scripts/controller/flexWrapController.js"></script>
+    <script src="scripts/controller/justifyContentController.js"></script>
+    <script src="scripts/controller/alignItemsController.js"></script>
+    <script src="scripts/controller/alignContentController.js"></script>
+    <script src="scripts/controller/flexGrowController.js"></script>
+    <script src="scripts/controller/flexShrinkController.js"></script>
+    <script src="scripts/controller/flexBasisController.js"></script>
+    <script src="scripts/controller/alignSelfController.js"></script>
+    <script src="scripts/controller/orderController.js"></script>
+    <!-- endbuild -->
   </body>
 </html>

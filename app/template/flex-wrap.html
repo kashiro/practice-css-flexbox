@@ -1,0 +1,25 @@
+<main class="fw">
+  <h1 class="title">flex-wrap</h1>
+  <div class="content">
+
+    <div class="example-outer" ng-style="{flexWrap: flexWrapCtrl.value}">
+
+      <md-input-container class="prop-select">
+        <label>flex-wrap</label>
+        <md-select ng-model="flexWrapCtrl.value">
+          <md-option value="wrap">wrap</md-option>
+          <md-option value="nowrap">nowrap</md-option>
+        </md-select>
+      </md-input-container>
+
+
+      <section class="example-inner"><p class="example-inner__index">1</p></section>
+      <section class="example-inner"><p class="example-inner__index">2</p></section>
+      <section class="example-inner"><p class="example-inner__index">3</p></section>
+      <section class="example-inner"><p class="example-inner__index">4</p></section>
+      <section class="example-inner"><p class="example-inner__index">5</p></section>
+      <section class="example-inner"><p class="example-inner__index">6</p></section>
+    </div>
+
+  </div>
+</main>

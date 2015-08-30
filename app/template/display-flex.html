@@ -1,0 +1,21 @@
+<main class="df">
+  <h1 class="title">display flex</h1>
+  <div class="content">
+
+    <div class="example-outer" ng-class="{flex : displayFlexCtrl.value === 'flex'}">
+
+      <md-input-container class="prop-select">
+        <label>display</label>
+          <md-select ng-model="displayFlexCtrl.value">
+          <md-option value="block">block</md-option>
+          <md-option value="flex">flex</md-option>
+        </md-select>
+      </md-input-container>
+
+      <section class="example-inner"><p class="example-inner__index">1</p></section>
+      <section class="example-inner"><p class="example-inner__index">2</p></section>
+      <section class="example-inner"><p class="example-inner__index">3</p></section>
+    </div>
+
+  </div>
+</main>

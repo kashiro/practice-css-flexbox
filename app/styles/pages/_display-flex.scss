@@ -1,0 +1,20 @@
+.df{
+  // option
+  .example-outer{
+    display: block;
+
+    .example-inner{
+      margin-left: 0;
+      margin-bottom: 10px;
+    }
+
+    &.flex{
+      display: flex;
+      .example-inner{
+        + .example-inner{
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}

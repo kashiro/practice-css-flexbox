@@ -39,6 +39,15 @@ var AUTOPREFIXER_BROWSERS = [
   'bb >= 10'
 ];
 
+// Lint JavaScript
+gulp.task('jshint', function () {
+  return gulp.src('app/scripts/**/*.js')
+    .pipe(reload({stream: true, once: true}))
+    .pipe($.jshint())
+    .pipe($.jshint.reporter('jshint-stylish'))
+    .pipe($.if(!browserSync.active, $.jshint.reporter('fail')));
+});
+
 // Copy all files at the root level (app)
 gulp.task('copy', function () {
   return gulp.src([
@@ -75,10 +84,12 @@ gulp.task('styles', function () {
 
 // Scan your HTML for assets & optimize them
 gulp.task('html', function () {
-  var assets = $.useref.assets({searchPath: '{.tmp,app}'});
+  var assets = $.useref.assets({searchPath: '{.tmp,app,bower_components}'});
 
   return gulp.src('app/**/*.html')
     .pipe(assets)
+    // Concatenate and minify JavaScript
+    .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
     // Remove any unused CSS
     // Note: if not using the Style Guide, you can delete it from
     //       the next line to only include styles your project uses.
@@ -119,11 +130,12 @@ gulp.task('serve', ['styles'], function () {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: ['.tmp', 'app']
+    server: ['.tmp', 'app', 'bower_components']
   });
 
   gulp.watch(['app/**/*.html'], reload);
   gulp.watch(['app/styles/**/*.{scss,css}'], ['default', reload]);
+  gulp.watch(['app/scripts/**/*.js'], ['jshint']);
 });
 
 // Build and serve the output from the dist build
@@ -141,7 +153,7 @@ gulp.task('serve:dist', ['default'], function () {
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['html', 'copy'], cb);
+  runSequence('styles', ['jshint', 'html', 'copy'], cb);
 });
 
 // Load custom tasks from the `tasks` directory
