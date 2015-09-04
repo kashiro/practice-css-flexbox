@@ -51,9 +51,10 @@ gulp.task('jshint', function () {
 // Copy all files at the root level (app)
 gulp.task('copy', function () {
   return gulp.src([
-    'app/*',
-    '!app/*.html',
-    'node_modules/apache-server-configs/dist/.htaccess'
+    'app/**/*',
+    '!app/scripts/**/*',
+    '!app/styles/**/*',
+    '!app/index.html'
   ], {
     dot: true
   }).pipe(gulp.dest('dist'))
@@ -64,7 +65,7 @@ gulp.task('copy', function () {
 gulp.task('styles', function () {
   // For best performance, don't add Sass partials to `gulp.src`
   return gulp.src([
-    'app/styles/*.scss',
+    'app/styles/**/*.scss',
     'app/styles/**/*.css'
   ])
     .pipe($.sourcemaps.init())
@@ -86,23 +87,23 @@ gulp.task('styles', function () {
 gulp.task('html', function () {
   var assets = $.useref.assets({searchPath: '{.tmp,app,bower_components}'});
 
-  return gulp.src('app/**/*.html')
+  return gulp.src('app/index.html')
     .pipe(assets)
     // Concatenate and minify JavaScript
     .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
     // Remove any unused CSS
     // Note: if not using the Style Guide, you can delete it from
     //       the next line to only include styles your project uses.
-    .pipe($.if('*.css', $.uncss({
-      html: [
-        'app/index.html'
-      ],
-      // CSS Selectors for UnCSS to ignore
-      ignore: [
-        /.navdrawer-container.open/,
-        /.app-bar.open/
-      ]
-    })))
+    //.pipe($.if('*.css', $.uncss({
+    //  html: [
+    //    'app/index.html'
+    //  ],
+    //  // CSS Selectors for UnCSS to ignore
+    //  ignore: [
+    //    /.navdrawer-container.open/,
+    //    /.app-bar.open/
+    //  ]
+    //})))
     // Concatenate and minify styles
     // In case you are still using useref build blocks
     .pipe($.if('*.css', $.csso()))
@@ -111,7 +112,7 @@ gulp.task('html', function () {
     // Update production Style Guide paths
     .pipe($.replace('components/components.css', 'components/main.min.css'))
     // Minify any HTML
-    .pipe($.if('*.html', $.minifyHtml()))
+    //.pipe($.if('*.html', $.minifyHtml()))
     // Output files
     .pipe(gulp.dest('dist'))
     .pipe($.size({title: 'html'}));
@@ -153,7 +154,7 @@ gulp.task('serve:dist', ['default'], function () {
 
 // Build production files, the default task
 gulp.task('default', ['clean'], function (cb) {
-  runSequence('styles', ['jshint', 'html', 'copy'], cb);
+  runSequence('styles', ['html', 'copy'], cb);
 });
 
 // Load custom tasks from the `tasks` directory

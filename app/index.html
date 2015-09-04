@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Practice CSS Flexbox</title>
     <base href="/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.1/angular-material.min.css">
     <!-- build:css styles/main.min.css -->
     <link rel="stylesheet" href="styles/main.css">
-    <link rel="stylesheet" href="angular-material/angular-material.css">
     <!-- endbuild -->
   </head>
   <body>
@@ -22,19 +22,19 @@
         <md-sidenav flex class="md-sidenav-left md-whiteframe-z2" md-component-id="sideNav" md-is-locked-open="$mdMedia('gt-md')">
           <md-list>
             <md-subheader class="md-no-sticky">flex container</md-subheader>
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">display-flex</md-list-item>
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-direction</md-list-item>
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-wrap</md-list-item>
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">justify-content</md-list-item>
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">align-items</md-list-item>
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">align-content</md-list-item>
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">display-flex</md-list-item>
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">flex-direction</md-list-item>
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">flex-wrap</md-list-item>
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">justify-content</md-list-item>
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">align-items</md-list-item>
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">align-content</md-list-item>
 
             <md-subheader class="md-no-sticky">flex item</md-subheader>
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-grow</md-list-item>
-            <!-- <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-shrink</md-list-item> -->
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">flex-basis</md-list-item>
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">align-self</md-list-item>
-            <md-list-item ng-click="sideNavCtrl.gotoPage($event)">order</md-list-item>
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">flex-grow</md-list-item>
+            <!-- <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">flex-shrink</md-list-item> -->
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">flex-basis</md-list-item>
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">align-self</md-list-item>
+            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">order</md-list-item>
           </md-list>
         </md-sidenav>
         <md-content flex layout-padding layout="column" layout-fill layout-align="top center">
@@ -42,12 +42,12 @@
         </md-content>
       </md-content>
     </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-aria.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.1/angular-material.min.js"></script>
     <!-- build:js scripts/main.min.js -->
-    <script src="angular/angular.js"></script>
-    <script src="angular-route/angular-route.js"></script>
-    <script src="angular-aria/angular-aria.js"></script>
-    <script src="angular-animate/angular-animate.js"></script>
-    <script src="angular-material/angular-material.js"></script>
     <script src="scripts/main.js"></script>
     <script src="scripts/controller/sidenavController.js"></script>
     <script src="scripts/controller/displayFlexController.js"></script>
