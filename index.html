@@ -6,9 +6,9 @@
     <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Practice CSS Flexbox</title>
-    <base href="/">
+    <!-- <base href="/"> -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.1/angular-material.min.css">
-    <link rel="stylesheet" href="/practice-css-flexbox/styles/main.min.css">
+    <link rel="stylesheet" href="styles/main.min.css">
   </head>
   <body>
     <section flex layout="column" layout-fill ng-controller="SideNavController as sideNavCtrl">
@@ -30,7 +30,7 @@
             <md-subheader class="md-no-sticky">flex item</md-subheader>
             <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">flex-grow</md-list-item>
             <!-- <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">flex-shrink</md-list-item> -->
-            <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">flex-basis</md-list-item>
+            <!-- <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">flex-basis</md-list-item> -->
             <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">align-self</md-list-item>
             <md-list-item class="nav-list-item" ng-click="sideNavCtrl.gotoPage($event)">order</md-list-item>
           </md-list>
@@ -45,6 +45,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-aria.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular-animate.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-material/0.10.1/angular-material.min.js"></script>
-    <script src="/practice-css-flexbox/scripts/main.min.js"></script>
+    <script src="scripts/main.min.js"></script>
   </body>
 </html>
